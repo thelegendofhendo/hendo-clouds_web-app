@@ -177,6 +177,33 @@ body {
     font-size: 14px;
 }
 
+.fill-mode-control {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.fill-mode-control h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.fill-mode-control .radio-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.fill-mode-control label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
 .color-codes-display {
     margin-bottom: 20px;
     padding: 15px;

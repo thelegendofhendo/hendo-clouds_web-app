@@ -1,145 +1,288 @@
 // ====== VERSION CONFIGURATION ======
 const versions = {
-    "0": {
-        name: "Single Cloud",
-        bgColor: '#000000', // Black background by default
-        groups: [
-            { stroke: '#64BC46', fill: '#4D9133' } // Single cloud
-        ]
-    },
-    "1": {
-        name: "1-Color (Unified)",
-        bgColor: '#000000', // Black background by default
-        groups: [
-            { stroke: '#64BC46', fill: '#4D9133' } // Single color group for all clouds
-        ]
-    },
-    "2": {
-        name: "2-Color (Chess)",
-        bgColor: '#000000', // Black background by default
-        groups: [
-            { stroke: '#FFFFFF', fill: '#FFFFFF' }, // White
-            { stroke: '#020401', fill: '#020401' }  // Near black
-        ]
-    },
-    "4": {
-        name: "4-Color (Primary)",
-        bgColor: '#000000', // Black background by default
-        groups: [
-            { stroke: '#64BC46', fill: '#4D9133' }, // Green
-            { stroke: '#414FA2', fill: '#2A3C84' }, // Blue
-            { stroke: '#DE4A4A', fill: '#B53737' }, // Red
-            { stroke: '#EDE829', fill: '#FFA500' }  // Yellow/Orange
-        ]
-    },
-    "8": {
-        name: "8-Color (Full)",
-        bgColor: '#000000', // Black background by default
-        groups: [
-            { stroke: '#64BC46', fill: '#4D9133' },
-            { stroke: '#EDE829', fill: '#ADA61E' },
-            { stroke: '#8A8C87', fill: '#18268C' },
-            { stroke: '#DE4A4A', fill: '#B53737' },
-            { stroke: '#E54B9B', fill: '#A52B71' },
-            { stroke: '#414FA2', fill: '#2A3C84' },
-            { stroke: '#9F792C', fill: '#725117' },
-            { stroke: '#76B6E3', fill: '#3D7191' }
-        ]
-    }
+  0: {
+    name: "Single Cloud",
+    bgColor: "#000000", // Black background by default
+    groups: [
+      { stroke: "#64BC46", fill: "#4D9133" }, // Single cloud
+    ],
+  },
+  1: {
+    name: "1-Color (Unified)",
+    bgColor: "#000000", // Black background by default
+    groups: [
+      { stroke: "#64BC46", fill: "#4D9133" }, // Single color group for all clouds
+    ],
+  },
+  2: {
+    name: "2-Color (Chess)",
+    bgColor: "#000000", // Black background by default
+    groups: [
+      { stroke: "#FFFFFF", fill: "#FFFFFF" }, // White
+      { stroke: "#020401", fill: "#020401" }, // Near black
+    ],
+  },
+  4: {
+    name: "4-Color (Primary)",
+    bgColor: "#000000", // Black background by default
+    groups: [
+      { stroke: "#64BC46", fill: "#4D9133" }, // Green
+      { stroke: "#414FA2", fill: "#2A3C84" }, // Blue
+      { stroke: "#DE4A4A", fill: "#B53737" }, // Red
+      { stroke: "#EDE829", fill: "#FFA500" }, // Yellow/Orange
+    ],
+  },
+  8: {
+    name: "8-Color (Full)",
+    bgColor: "#000000", // Black background by default
+    groups: [
+      { stroke: "#64BC46", fill: "#4D9133" },
+      { stroke: "#EDE829", fill: "#ADA61E" },
+      { stroke: "#8A8C87", fill: "#18268C" },
+      { stroke: "#DE4A4A", fill: "#B53737" },
+      { stroke: "#E54B9B", fill: "#A52B71" },
+      { stroke: "#414FA2", fill: "#2A3C84" },
+      { stroke: "#9F792C", fill: "#725117" },
+      { stroke: "#76B6E3", fill: "#3D7191" },
+    ],
+  },
 };
 
 // Cloud positions for different versions
 const cloudPositions = {
-    "0": [
-        // Single cloud positioned up and left - final position after all adjustments
-        // Background dimensions: 1399.8 x 1400, cloud scale: 6.209x
-        [{ x: 99.9, y: 250 }]
+  0: [
+    // Single cloud positioned up and left - final position after all adjustments
+    // Background dimensions: 1399.8 x 1400, cloud scale: 6.209x
+    [{ x: 99.9, y: 250 }],
+  ],
+  1: [
+    // All 8 groups merged into one - using the same positions as version 8
+    [
+      { x: 1121.5, y: 983.9 },
+      { x: 424.7, y: 633.9 },
+      { x: 1121.5, y: 283.9 },
+      { x: 76.4, y: 1333.9 },
+      { x: 76.4, y: -66.1 },
     ],
-    "1": [
-        // All 8 groups merged into one - using the same positions as version 8
-        [{ x: 1121.5, y: 983.9 }, { x: 424.7, y: 633.9 }, { x: 1121.5, y: 283.9 },
-        { x: 76.4, y: 1333.9 }, { x: 76.4, y: -66.1 }],
-        [{ x: 773.1, y: 983.9 }, { x: 76.4, y: 633.9 }, { x: 773.1, y: 283.9 },
-        { x: 424.7, y: 1333.9 }, { x: 424.7, y: -66.1 }],
-        [{ x: 424.7, y: 983.9 }, { x: 1121.5, y: 633.9 }, { x: 424.7, y: 283.9 },
-        { x: 773.1, y: 1333.9 }, { x: 773.1, y: -66.1 }],
-        [{ x: 76.4, y: 983.9 }, { x: 773.1, y: 633.9 }, { x: 76.4, y: 283.9 },
-        { x: 1121.5, y: 1333.9 }, { x: 1121.5, y: -66.1 }],
-        [{ x: 598.8, y: 1158.9 }, { x: 948.7, y: 808.9 }, { x: 598.8, y: 458.9 }, ,
-        { x: -101.1, y: 108.9 }, { x: 1298.7, y: 108.9 }],
-        [{ x: 1298.7, y: 1158.9 }, { x: -101.1, y: 1158.9 }, { x: 248.9, y: 808.9 },
-        { x: 948.7, y: 458.9 }, { x: 248.9, y: 108.9 }],
-        [{ x: 948.7, y: 1158.9 }, { x: -101.1, y: 808.9 }, { x: 1298.7, y: 808.9 },
-        { x: 598.8, y: 108.9 }, { x: 248.9, y: 458.9 }],
-        [{ x: 248.9, y: 1158.9 }, { x: 598.8, y: 808.9 }, { x: 1298.7, y: 458.9 },
-        { x: -101.1, y: 458.9 }, { x: 948.7, y: 108.9 }]
+    [
+      { x: 773.1, y: 983.9 },
+      { x: 76.4, y: 633.9 },
+      { x: 773.1, y: 283.9 },
+      { x: 424.7, y: 1333.9 },
+      { x: 424.7, y: -66.1 },
     ],
-    "2": [
-        // Group 1 (White in 2-color version)
-        [{ x: 1121.5, y: 983.9 }, { x: 424.7, y: 633.9 }, { x: 1121.5, y: 283.9 },
-        { x: 76.4, y: 1333.9 }, { x: 76.4, y: -66.1 }],
-        // Group 2 (Black in 2-color version)
-        [{ x: 773.1, y: 983.9 }, { x: 76.4, y: 633.9 }, { x: 773.1, y: 283.9 },
-        { x: 424.7, y: 1333.9 }, { x: 424.7, y: -66.1 }],
-        // Group 3 (White in 2-color version)
-        [{ x: 424.7, y: 983.9 }, { x: 1121.5, y: 633.9 }, { x: 424.7, y: 283.9 },
-        { x: 773.1, y: 1333.9 }, { x: 773.1, y: -66.1 }],
-        // Group 4 (Black in 2-color version)
-        [{ x: 76.4, y: 983.9 }, { x: 773.1, y: 633.9 }, { x: 76.4, y: 283.9 },
-        { x: 1121.5, y: 1333.9 }, { x: 1121.5, y: -66.1 }],
-        // Group 5 (White in 2-color version)
-        [{ x: 598.8, y: 1158.9 }, { x: 948.7, y: 808.9 }, { x: 598.8, y: 458.9 }, ,
-        { x: -101.1, y: 108.9 }, { x: 1298.7, y: 108.9 }],
-        // Group 6 (Black in 2-color version)
-        [{ x: 1298.7, y: 1158.9 }, { x: -101.1, y: 1158.9 }, { x: 248.9, y: 808.9 },
-        { x: 948.7, y: 458.9 }, { x: 248.9, y: 108.9 }],
-        // Group 7 (White in 2-color version)
-        [{ x: 948.7, y: 1158.9 }, { x: -101.1, y: 808.9 }, { x: 1298.7, y: 808.9 },
-        { x: 598.8, y: 108.9 }, { x: 248.9, y: 458.9 }],
-        // Group 8 (Black in 2-color version)
-        [{ x: 248.9, y: 1158.9 }, { x: 598.8, y: 808.9 }, { x: 1298.7, y: 458.9 },
-        { x: -101.1, y: 458.9 }, { x: 948.7, y: 108.9 }]
+    [
+      { x: 424.7, y: 983.9 },
+      { x: 1121.5, y: 633.9 },
+      { x: 424.7, y: 283.9 },
+      { x: 773.1, y: 1333.9 },
+      { x: 773.1, y: -66.1 },
     ],
-    "4": [
-        // Group 1
-        [{ x: 1121.5, y: 983.9 }, { x: 424.7, y: 633.9 }, { x: 1121.5, y: 283.9 },
-        { x: 76.4, y: 1333.9 }, { x: 76.4, y: -66.1 }],
-        // Group 2
-        [{ x: 773.1, y: 983.9 }, { x: 76.4, y: 633.9 }, { x: 773.1, y: 283.9 },
-        { x: 424.7, y: 1333.9 }, { x: 424.7, y: -66.1 }],
-        // Group 3
-        [{ x: 424.7, y: 983.9 }, { x: 1121.5, y: 633.9 }, { x: 424.7, y: 283.9 },
-        { x: 773.1, y: 1333.9 }, { x: 773.1, y: -66.1 }],
-        // Group 4
-        [{ x: 76.4, y: 983.9 }, { x: 773.1, y: 633.9 }, { x: 76.4, y: 283.9 },
-        { x: 1121.5, y: 1333.9 }, { x: 1121.5, y: -66.1 }]
+    [
+      { x: 76.4, y: 983.9 },
+      { x: 773.1, y: 633.9 },
+      { x: 76.4, y: 283.9 },
+      { x: 1121.5, y: 1333.9 },
+      { x: 1121.5, y: -66.1 },
     ],
-    "8": [
-        // Group 1
-        [{ x: 1121.5, y: 983.9 }, { x: 424.7, y: 633.9 }, { x: 1121.5, y: 283.9 },
-        { x: 76.4, y: 1333.9 }, { x: 76.4, y: -66.1 }],
-        // Group 2
-        [{ x: 773.1, y: 983.9 }, { x: 76.4, y: 633.9 }, { x: 773.1, y: 283.9 },
-        { x: 424.7, y: 1333.9 }, { x: 424.7, y: -66.1 }],
-        // Group 3
-        [{ x: 424.7, y: 983.9 }, { x: 1121.5, y: 633.9 }, { x: 424.7, y: 283.9 },
-        { x: 773.1, y: 1333.9 }, { x: 773.1, y: -66.1 }],
-        // Group 4
-        [{ x: 76.4, y: 983.9 }, { x: 773.1, y: 633.9 }, { x: 76.4, y: 283.9 },
-        { x: 1121.5, y: 1333.9 }, { x: 1121.5, y: -66.1 }],
-        // Group 5
-        [{ x: 598.8, y: 1158.9 }, { x: 948.7, y: 808.9 }, { x: 598.8, y: 458.9 }, ,
-        { x: -101.1, y: 108.9 }, { x: 1298.7, y: 108.9 }],
-        // Group 6
-        [{ x: 1298.7, y: 1158.9 }, { x: -101.1, y: 1158.9 }, { x: 248.9, y: 808.9 },
-        { x: 948.7, y: 458.9 }, { x: 248.9, y: 108.9 }],
-        // Group 7
-        [{ x: 948.7, y: 1158.9 }, { x: -101.1, y: 808.9 }, { x: 1298.7, y: 808.9 },
-        { x: 598.8, y: 108.9 }, { x: 248.9, y: 458.9 }],
-        // Group 8
-        [{ x: 248.9, y: 1158.9 }, { x: 598.8, y: 808.9 }, { x: 1298.7, y: 458.9 },
-        { x: -101.1, y: 458.9 }, { x: 948.7, y: 108.9 }]
-    ]
+    [
+      { x: 598.8, y: 1158.9 },
+      { x: 948.7, y: 808.9 },
+      { x: 598.8, y: 458.9 },
+      ,
+      { x: -101.1, y: 108.9 },
+      { x: 1298.7, y: 108.9 },
+    ],
+    [
+      { x: 1298.7, y: 1158.9 },
+      { x: -101.1, y: 1158.9 },
+      { x: 248.9, y: 808.9 },
+      { x: 948.7, y: 458.9 },
+      { x: 248.9, y: 108.9 },
+    ],
+    [
+      { x: 948.7, y: 1158.9 },
+      { x: -101.1, y: 808.9 },
+      { x: 1298.7, y: 808.9 },
+      { x: 598.8, y: 108.9 },
+      { x: 248.9, y: 458.9 },
+    ],
+    [
+      { x: 248.9, y: 1158.9 },
+      { x: 598.8, y: 808.9 },
+      { x: 1298.7, y: 458.9 },
+      { x: -101.1, y: 458.9 },
+      { x: 948.7, y: 108.9 },
+    ],
+  ],
+  2: [
+    // Group 1 (White in 2-color version)
+    [
+      { x: 1121.5, y: 983.9 },
+      { x: 424.7, y: 633.9 },
+      { x: 1121.5, y: 283.9 },
+      { x: 76.4, y: 1333.9 },
+      { x: 76.4, y: -66.1 },
+    ],
+    // Group 2 (Black in 2-color version)
+    [
+      { x: 773.1, y: 983.9 },
+      { x: 76.4, y: 633.9 },
+      { x: 773.1, y: 283.9 },
+      { x: 424.7, y: 1333.9 },
+      { x: 424.7, y: -66.1 },
+    ],
+    // Group 3 (White in 2-color version)
+    [
+      { x: 424.7, y: 983.9 },
+      { x: 1121.5, y: 633.9 },
+      { x: 424.7, y: 283.9 },
+      { x: 773.1, y: 1333.9 },
+      { x: 773.1, y: -66.1 },
+    ],
+    // Group 4 (Black in 2-color version)
+    [
+      { x: 76.4, y: 983.9 },
+      { x: 773.1, y: 633.9 },
+      { x: 76.4, y: 283.9 },
+      { x: 1121.5, y: 1333.9 },
+      { x: 1121.5, y: -66.1 },
+    ],
+    // Group 5 (White in 2-color version)
+    [
+      { x: 598.8, y: 1158.9 },
+      { x: 948.7, y: 808.9 },
+      { x: 598.8, y: 458.9 },
+      ,
+      { x: -101.1, y: 108.9 },
+      { x: 1298.7, y: 108.9 },
+    ],
+    // Group 6 (Black in 2-color version)
+    [
+      { x: 1298.7, y: 1158.9 },
+      { x: -101.1, y: 1158.9 },
+      { x: 248.9, y: 808.9 },
+      { x: 948.7, y: 458.9 },
+      { x: 248.9, y: 108.9 },
+    ],
+    // Group 7 (White in 2-color version)
+    [
+      { x: 948.7, y: 1158.9 },
+      { x: -101.1, y: 808.9 },
+      { x: 1298.7, y: 808.9 },
+      { x: 598.8, y: 108.9 },
+      { x: 248.9, y: 458.9 },
+    ],
+    // Group 8 (Black in 2-color version)
+    [
+      { x: 248.9, y: 1158.9 },
+      { x: 598.8, y: 808.9 },
+      { x: 1298.7, y: 458.9 },
+      { x: -101.1, y: 458.9 },
+      { x: 948.7, y: 108.9 },
+    ],
+  ],
+  4: [
+    // Group 1
+    [
+      { x: 1121.5, y: 983.9 },
+      { x: 424.7, y: 633.9 },
+      { x: 1121.5, y: 283.9 },
+      { x: 76.4, y: 1333.9 },
+      { x: 76.4, y: -66.1 },
+    ],
+    // Group 2
+    [
+      { x: 773.1, y: 983.9 },
+      { x: 76.4, y: 633.9 },
+      { x: 773.1, y: 283.9 },
+      { x: 424.7, y: 1333.9 },
+      { x: 424.7, y: -66.1 },
+    ],
+    // Group 3
+    [
+      { x: 424.7, y: 983.9 },
+      { x: 1121.5, y: 633.9 },
+      { x: 424.7, y: 283.9 },
+      { x: 773.1, y: 1333.9 },
+      { x: 773.1, y: -66.1 },
+    ],
+    // Group 4
+    [
+      { x: 76.4, y: 983.9 },
+      { x: 773.1, y: 633.9 },
+      { x: 76.4, y: 283.9 },
+      { x: 1121.5, y: 1333.9 },
+      { x: 1121.5, y: -66.1 },
+    ],
+  ],
+  8: [
+    // Group 1
+    [
+      { x: 1121.5, y: 983.9 },
+      { x: 424.7, y: 633.9 },
+      { x: 1121.5, y: 283.9 },
+      { x: 76.4, y: 1333.9 },
+      { x: 76.4, y: -66.1 },
+    ],
+    // Group 2
+    [
+      { x: 773.1, y: 983.9 },
+      { x: 76.4, y: 633.9 },
+      { x: 773.1, y: 283.9 },
+      { x: 424.7, y: 1333.9 },
+      { x: 424.7, y: -66.1 },
+    ],
+    // Group 3
+    [
+      { x: 424.7, y: 983.9 },
+      { x: 1121.5, y: 633.9 },
+      { x: 424.7, y: 283.9 },
+      { x: 773.1, y: 1333.9 },
+      { x: 773.1, y: -66.1 },
+    ],
+    // Group 4
+    [
+      { x: 76.4, y: 983.9 },
+      { x: 773.1, y: 633.9 },
+      { x: 76.4, y: 283.9 },
+      { x: 1121.5, y: 1333.9 },
+      { x: 1121.5, y: -66.1 },
+    ],
+    // Group 5
+    [
+      { x: 598.8, y: 1158.9 },
+      { x: 948.7, y: 808.9 },
+      { x: 598.8, y: 458.9 },
+      ,
+      { x: -101.1, y: 108.9 },
+      { x: 1298.7, y: 108.9 },
+    ],
+    // Group 6
+    [
+      { x: 1298.7, y: 1158.9 },
+      { x: -101.1, y: 1158.9 },
+      { x: 248.9, y: 808.9 },
+      { x: 948.7, y: 458.9 },
+      { x: 248.9, y: 108.9 },
+    ],
+    // Group 7
+    [
+      { x: 948.7, y: 1158.9 },
+      { x: -101.1, y: 808.9 },
+      { x: 1298.7, y: 808.9 },
+      { x: 598.8, y: 108.9 },
+      { x: 248.9, y: 458.9 },
+    ],
+    // Group 8
+    [
+      { x: 248.9, y: 1158.9 },
+      { x: 598.8, y: 808.9 },
+      { x: 1298.7, y: 458.9 },
+      { x: -101.1, y: 458.9 },
+      { x: 948.7, y: 108.9 },
+    ],
+  ],
 };
 
 // Specific color order for 2-color version (matches your SVG pattern)
@@ -147,139 +290,156 @@ const twoColorOrder = [0, 1, 0, 1, 0, 1, 0, 1]; // 0 = white, 1 = black
 
 let currentVersion = "8"; // Default to 8-color version
 let currentColors = {
-    bgColor: '#000000', // Start with black background
-    groups: JSON.parse(JSON.stringify(versions[currentVersion].groups))
+  bgColor: "#000000", // Start with black background
+  groups: JSON.parse(JSON.stringify(versions[currentVersion].groups)),
 };
 
 let backgroundVisible = true; // Track background visibility
+let fillMode = "fill"; // Fill mode: fill or outline
 
 // Function to generate random color
 function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Function to resolve effective fill color based on fill mode
+function getEffectiveFill(fill) {
+  if (fillMode === "outline") {
+    return "none";
+  }
+  return fill;
 }
 
 // Function to display color codes
 function displayColorCodes() {
-    const container = document.getElementById('colorCodes');
-    if (!container) return;
+  const container = document.getElementById("colorCodes");
+  if (!container) return;
 
-    container.innerHTML = '';
+  container.innerHTML = "";
 
-    // Add background color code
-    if (backgroundVisible) {
-        const bgItem = document.createElement('div');
-        bgItem.className = 'color-code-item';
-        bgItem.innerHTML = `
+  // Add background color code
+  if (backgroundVisible) {
+    const bgItem = document.createElement("div");
+    bgItem.className = "color-code-item";
+    bgItem.innerHTML = `
             <div class="color-preview" style="background-color: ${currentColors.bgColor}"></div>
             <span class="color-label">Background:</span>
             <span class="color-code-text">${currentColors.bgColor}</span>
         `;
-        bgItem.addEventListener('click', () => copyToClipboard(currentColors.bgColor));
-        container.appendChild(bgItem);
-    }
+    bgItem.addEventListener("click", () =>
+      copyToClipboard(currentColors.bgColor),
+    );
+    container.appendChild(bgItem);
+  }
 
-    // Add group color codes
-    currentColors.groups.forEach((group, i) => {
-        // Fill color
-        const fillItem = document.createElement('div');
-        fillItem.className = 'color-code-item';
-        fillItem.innerHTML = `
+  // Add group color codes
+  currentColors.groups.forEach((group, i) => {
+    // Fill color
+    const fillItem = document.createElement("div");
+    fillItem.className = "color-code-item";
+    fillItem.innerHTML = `
             <div class="color-preview" style="background-color: ${group.fill}"></div>
             <span class="color-label">Group ${i + 1} Fill:</span>
             <span class="color-code-text">${group.fill}</span>
         `;
-        fillItem.addEventListener('click', () => copyToClipboard(group.fill));
-        container.appendChild(fillItem);
+    fillItem.addEventListener("click", () => copyToClipboard(group.fill));
+    container.appendChild(fillItem);
 
-        // Stroke color
-        const strokeItem = document.createElement('div');
-        strokeItem.className = 'color-code-item';
-        strokeItem.innerHTML = `
+    // Stroke color
+    const strokeItem = document.createElement("div");
+    strokeItem.className = "color-code-item";
+    strokeItem.innerHTML = `
             <div class="color-preview" style="background-color: ${group.stroke}"></div>
             <span class="color-label">Group ${i + 1} Stroke:</span>
             <span class="color-code-text">${group.stroke}</span>
         `;
-        strokeItem.addEventListener('click', () => copyToClipboard(group.stroke));
-        container.appendChild(strokeItem);
-    });
+    strokeItem.addEventListener("click", () => copyToClipboard(group.stroke));
+    container.appendChild(strokeItem);
+  });
 }
 
 // Function to copy color code to clipboard
 function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        // Show feedback
-        const originalText = text;
-        const element = event.target.closest('.color-code-item').querySelector('.color-code-text');
-        element.textContent = 'Copied!';
-        element.style.color = '#28a745';
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      // Show feedback
+      const originalText = text;
+      const element = event.target
+        .closest(".color-code-item")
+        .querySelector(".color-code-text");
+      element.textContent = "Copied!";
+      element.style.color = "#28a745";
 
-        setTimeout(() => {
-            element.textContent = originalText;
-            element.style.color = '#495057';
-        }, 1000);
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
+      setTimeout(() => {
+        element.textContent = originalText;
+        element.style.color = "#495057";
+      }, 1000);
+    })
+    .catch((err) => {
+      console.error("Failed to copy: ", err);
     });
 }
 
 // Function to make background transparent
 function makeTransparent() {
-    currentColors.bgColor = 'transparent';
-    const bgElement = document.getElementById('bg');
-    bgElement.style.display = 'none';
+  currentColors.bgColor = "transparent";
+  const bgElement = document.getElementById("bg");
+  bgElement.style.display = "none";
 
-    // Update color picker and display
-    document.getElementById('bg-fill').value = '#000000';
-    document.getElementById('bg-color-code').textContent = 'transparent';
+  // Update color picker and display
+  document.getElementById("bg-fill").value = "#000000";
+  document.getElementById("bg-color-code").textContent = "transparent";
 
-    displayColorCodes();
+  displayColorCodes();
+  renderClouds();
 }
 
 // Function to toggle background visibility
 function toggleBackground() {
-    backgroundVisible = !backgroundVisible;
-    const bgElement = document.getElementById('bg');
-    const button = document.getElementById('toggleBackground');
+  backgroundVisible = !backgroundVisible;
+  const bgElement = document.getElementById("bg");
+  const button = document.getElementById("toggleBackground");
 
-    if (backgroundVisible) {
-        bgElement.style.display = 'block';
-        button.textContent = 'Remove Background';
-        button.style.backgroundColor = '#4CAF50';
-    } else {
-        bgElement.style.display = 'none';
-        button.textContent = 'Show Background';
-        button.style.backgroundColor = '#dc3545';
-    }
+  if (backgroundVisible) {
+    bgElement.style.display = "block";
+    button.textContent = "Remove Background";
+    button.style.backgroundColor = "#4CAF50";
+  } else {
+    bgElement.style.display = "none";
+    button.textContent = "Show Background";
+    button.style.backgroundColor = "#dc3545";
+  }
 
-    displayColorCodes();
+  displayColorCodes();
 }
 
 // ====== CORE FUNCTIONS ======
 function createGroupControls() {
-    const container = document.getElementById('groupControls');
-    container.innerHTML = '';
+  const container = document.getElementById("groupControls");
+  container.innerHTML = "";
 
-    currentColors.groups.forEach((group, i) => {
-        const groupElement = document.createElement('div');
-        groupElement.className = 'color-group';
+  currentColors.groups.forEach((group, i) => {
+    const groupElement = document.createElement("div");
+    groupElement.className = "color-group";
 
-        // For version 0, show "Single Cloud" instead of "Group 1"
-        // For version 1, show "All Clouds" instead of "Group 1"
-        let groupTitle;
-        if (currentVersion === "0") {
-            groupTitle = "Single Cloud";
-        } else if (currentVersion === "1") {
-            groupTitle = "All Clouds";
-        } else {
-            groupTitle = `Group ${i + 1}`;
-        }
+    // For version 0, show "Single Cloud" instead of "Group 1"
+    // For version 1, show "All Clouds" instead of "Group 1"
+    let groupTitle;
+    if (currentVersion === "0") {
+      groupTitle = "Single Cloud";
+    } else if (currentVersion === "1") {
+      groupTitle = "All Clouds";
+    } else {
+      groupTitle = `Group ${i + 1}`;
+    }
 
-        groupElement.innerHTML = `
+    groupElement.innerHTML = `
             <h3>${groupTitle}</h3>
             <div class="color-controls-row">
                 <div class="color-control">
@@ -294,349 +454,427 @@ function createGroupControls() {
                 </div>
             </div>
         `;
-        container.appendChild(groupElement);
-    });
+    container.appendChild(groupElement);
+  });
 }
 
 function renderClouds() {
-    const svg = document.getElementById('svg-preview');
-    if (!svg) return;
+  const svg = document.getElementById("svg-preview");
+  if (!svg) return;
 
-    // Clear existing clouds
-    svg.innerHTML = '';
+  // Clear existing clouds
+  svg.innerHTML = "";
 
-    // Add background
-    const bg = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    bg.setAttribute('width', '1399.8');
-    bg.setAttribute('height', '1400');
-    bg.setAttribute('fill', currentColors.bgColor);
-    bg.id = 'bg';
+  // Add background
+  const bg = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  bg.setAttribute("width", "1399.8");
+  bg.setAttribute("height", "1400");
+  bg.setAttribute("fill", currentColors.bgColor);
+  bg.id = "bg";
 
-    // Hide background if it's transparent or if background is toggled off
-    if (currentColors.bgColor === 'transparent' || !backgroundVisible) {
-        bg.style.display = 'none';
-    } else {
-        bg.style.display = 'block';
-    }
+  // Hide background if it's transparent or if background is toggled off
+  if (currentColors.bgColor === "transparent" || !backgroundVisible) {
+    bg.style.display = "none";
+  } else {
+    bg.style.display = "block";
+  }
 
-    svg.appendChild(bg);
+  svg.appendChild(bg);
 
-    // Update color picker
-    document.getElementById('bg-fill').value = currentColors.bgColor === 'transparent' ? '#1A171C' : currentColors.bgColor;
-    document.getElementById('bg-color-code').textContent = currentColors.bgColor === 'transparent' ? 'transparent' : currentColors.bgColor;
+  // Update color picker
+  document.getElementById("bg-fill").value =
+    currentColors.bgColor === "transparent" ? "#1A171C" : currentColors.bgColor;
+  document.getElementById("bg-color-code").textContent =
+    currentColors.bgColor === "transparent"
+      ? "transparent"
+      : currentColors.bgColor;
 
-    // Get positions for current version
-    const positions = cloudPositions[currentVersion];
-    if (!positions) return;
+  // Get positions for current version
+  const positions = cloudPositions[currentVersion];
+  if (!positions) return;
 
-    // Create clouds with proper color distribution
-    const colorGroups = currentColors.groups;
-    const colorCount = colorGroups.length;
+  // Create clouds with proper color distribution
+  const colorGroups = currentColors.groups;
+  const colorCount = colorGroups.length;
 
-    // For 0-cloud version: single cloud only
-    if (currentVersion === "0") {
-        positions[0].forEach(pos => {
-            const cloudElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            cloudElement.innerHTML = cloudSVG;
+  // For 0-cloud version: single cloud only
+  if (currentVersion === "0") {
+    positions[0].forEach((pos) => {
+      const cloudElement = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g",
+      );
+      cloudElement.innerHTML = cloudSVG;
 
-            // Center the cloud perfectly within the background boundaries
-            // Background dimensions: 1399.8 x 1400
-            // Cloud scale: 6.209x (10% smaller than previous 6.899x)
-            // Position at upper-left area: (99.9, -200)
-            const scale = 6.209;
-            cloudElement.setAttribute('transform', `translate(${pos.x}, ${pos.y}) scale(${scale})`);
+      // Center the cloud perfectly within the background boundaries
+      // Background dimensions: 1399.8 x 1400
+      // Cloud scale: 6.209x (10% smaller than previous 6.899x)
+      // Position at upper-left area: (99.9, -200)
+      const scale = 6.209;
+      cloudElement.setAttribute(
+        "transform",
+        `translate(${pos.x}, ${pos.y}) scale(${scale})`,
+      );
 
-            const paths = cloudElement.querySelectorAll('path');
-            paths[0].setAttribute('fill', colorGroups[0].stroke);
-            paths[1].setAttribute('fill', colorGroups[0].fill);
+      const paths = cloudElement.querySelectorAll("path");
+      paths[0].setAttribute("fill", colorGroups[0].stroke);
+      paths[1].setAttribute("fill", getEffectiveFill(colorGroups[0].fill));
 
-            svg.appendChild(cloudElement);
-        });
-    }
-    // For 1-color version: all clouds use the same colors
-    else if (colorCount === 1) {
-        positions.forEach((groupPositions, groupIndex) => {
-            groupPositions.forEach(pos => {
-                const cloudElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                cloudElement.innerHTML = cloudSVG;
-                cloudElement.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+      svg.appendChild(cloudElement);
+    });
+  }
+  // For 1-color version: all clouds use the same colors
+  else if (colorCount === 1) {
+    positions.forEach((groupPositions, groupIndex) => {
+      groupPositions.forEach((pos) => {
+        const cloudElement = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "g",
+        );
+        cloudElement.innerHTML = cloudSVG;
+        cloudElement.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
 
-                const paths = cloudElement.querySelectorAll('path');
-                paths[0].setAttribute('fill', colorGroups[0].stroke);
-                paths[1].setAttribute('fill', colorGroups[0].fill);
+        const paths = cloudElement.querySelectorAll("path");
+        paths[0].setAttribute("fill", colorGroups[0].stroke);
+        paths[1].setAttribute("fill", getEffectiveFill(colorGroups[0].fill));
 
-                svg.appendChild(cloudElement);
-            });
-        });
-    }
-    // For 2-color version: specific pattern matching your SVG
-    else if (colorCount === 2) {
-        positions.forEach((groupPositions, index) => {
-            // Use the predefined order for 2-color version
-            const colorIndex = twoColorOrder[index];
-            const { stroke, fill } = colorGroups[colorIndex];
+        svg.appendChild(cloudElement);
+      });
+    });
+  }
+  // For 2-color version: specific pattern matching your SVG
+  else if (colorCount === 2) {
+    positions.forEach((groupPositions, index) => {
+      // Use the predefined order for 2-color version
+      const colorIndex = twoColorOrder[index];
+      const { stroke, fill } = colorGroups[colorIndex];
 
-            groupPositions.forEach(pos => {
-                const cloudElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                cloudElement.innerHTML = cloudSVG;
-                cloudElement.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+      groupPositions.forEach((pos) => {
+        const cloudElement = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "g",
+        );
+        cloudElement.innerHTML = cloudSVG;
+        cloudElement.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
 
-                const paths = cloudElement.querySelectorAll('path');
-                paths[0].setAttribute('fill', stroke);
-                paths[1].setAttribute('fill', fill);
+        const paths = cloudElement.querySelectorAll("path");
+        paths[0].setAttribute("fill", stroke);
+        paths[1].setAttribute("fill", getEffectiveFill(fill));
 
-                svg.appendChild(cloudElement);
-            });
-        });
-    }
-    // For 4-color version: distributed pattern
-    else if (colorCount === 4) {
-        // Create a pattern where no two adjacent groups share colors
-        const colorOrder = [0, 1, 2, 3, 0, 2, 1, 3]; // Custom distribution
+        svg.appendChild(cloudElement);
+      });
+    });
+  }
+  // For 4-color version: distributed pattern
+  else if (colorCount === 4) {
+    // Create a pattern where no two adjacent groups share colors
+    const colorOrder = [0, 1, 2, 3, 0, 2, 1, 3]; // Custom distribution
 
-        positions.forEach((groupPositions, index) => {
-            const colorIndex = colorOrder[index % colorOrder.length];
-            const { stroke, fill } = colorGroups[colorIndex];
+    positions.forEach((groupPositions, index) => {
+      const colorIndex = colorOrder[index % colorOrder.length];
+      const { stroke, fill } = colorGroups[colorIndex];
 
-            groupPositions.forEach(pos => {
-                const cloudElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                cloudElement.innerHTML = cloudSVG;
-                cloudElement.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+      groupPositions.forEach((pos) => {
+        const cloudElement = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "g",
+        );
+        cloudElement.innerHTML = cloudSVG;
+        cloudElement.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
 
-                const paths = cloudElement.querySelectorAll('path');
-                paths[0].setAttribute('fill', stroke);
-                paths[1].setAttribute('fill', fill);
+        const paths = cloudElement.querySelectorAll("path");
+        paths[0].setAttribute("fill", stroke);
+        paths[1].setAttribute("fill", getEffectiveFill(fill));
 
-                svg.appendChild(cloudElement);
-            });
-        });
-    }
-    // For 8-color version: original pattern
-    else {
-        positions.forEach((groupPositions, index) => {
-            const { stroke, fill } = colorGroups[index];
+        svg.appendChild(cloudElement);
+      });
+    });
+  }
+  // For 8-color version: original pattern
+  else {
+    positions.forEach((groupPositions, index) => {
+      const { stroke, fill } = colorGroups[index];
 
-            groupPositions.forEach(pos => {
-                const cloudElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                cloudElement.innerHTML = cloudSVG;
-                cloudElement.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+      groupPositions.forEach((pos) => {
+        const cloudElement = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "g",
+        );
+        cloudElement.innerHTML = cloudSVG;
+        cloudElement.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
 
-                const paths = cloudElement.querySelectorAll('path');
-                paths[0].setAttribute('fill', stroke);
-                paths[1].setAttribute('fill', fill);
+        const paths = cloudElement.querySelectorAll("path");
+        paths[0].setAttribute("fill", stroke);
+        paths[1].setAttribute("fill", getEffectiveFill(fill));
 
-                svg.appendChild(cloudElement);
-            });
-        });
-    }
+        svg.appendChild(cloudElement);
+      });
+    });
+  }
 
-    // Update color codes display
-    displayColorCodes();
+  // Update color codes display
+  displayColorCodes();
 }
 
 function randomizeAllColors() {
-    currentColors.bgColor = getRandomColor();
-    currentColors.groups = currentColors.groups.map(() => ({
-        stroke: getRandomColor(),
-        fill: getRandomColor()
-    }));
+  currentColors.bgColor = getRandomColor();
+  currentColors.groups = currentColors.groups.map(() => ({
+    stroke: getRandomColor(),
+    fill: getRandomColor(),
+  }));
 
-    renderClouds();
-    createGroupControls();
-    setupEventListeners();
+  renderClouds();
+  createGroupControls();
+  setupEventListeners();
 }
 
 function resetColors() {
-    currentColors = {
-        bgColor: versions[currentVersion].bgColor,
-        groups: JSON.parse(JSON.stringify(versions[currentVersion].groups))
-    };
+  currentColors = {
+    bgColor: versions[currentVersion].bgColor,
+    groups: JSON.parse(JSON.stringify(versions[currentVersion].groups)),
+  };
 
-    // Ensure background is visible when resetting
-    const bgElement = document.getElementById('bg');
-    if (bgElement) {
-        bgElement.style.display = 'block';
-    }
+  // Ensure background is visible when resetting
+  const bgElement = document.getElementById("bg");
+  if (bgElement) {
+    bgElement.style.display = "block";
+  }
 
-    renderClouds();
-    createGroupControls();
-    setupEventListeners();
+  renderClouds();
+  createGroupControls();
+  setupEventListeners();
 }
 
 function changeVersion(version) {
-    currentVersion = version;
-    currentColors = {
-        bgColor: versions[version].bgColor,
-        groups: JSON.parse(JSON.stringify(versions[version].groups))
-    };
-    renderClouds();
-    createGroupControls();
-    setupEventListeners();
+  currentVersion = version;
+  currentColors = {
+    bgColor: versions[version].bgColor,
+    groups: JSON.parse(JSON.stringify(versions[version].groups)),
+  };
+  renderClouds();
+  createGroupControls();
+  setupEventListeners();
 }
 
 function downloadSVG() {
-    const svgElement = document.getElementById('svg-preview');
-    const serializer = new XMLSerializer();
-    let svgContent = serializer.serializeToString(svgElement);
+  const svgElement = document.getElementById("svg-preview");
+  const serializer = new XMLSerializer();
+  let svgContent = serializer.serializeToString(svgElement);
 
-    // Remove background if it's hidden
-    if (!backgroundVisible) {
-        svgContent = svgContent.replace(/<rect[^>]*id="bg"[^>]*\/?>/, '');
-    }
+  // Remove background if it's hidden
+  if (!backgroundVisible) {
+    svgContent = svgContent.replace(/<rect[^>]*id="bg"[^>]*\/?>/, "");
+  }
 
-    svgContent = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' +
-        '<!-- Created with Cloud Pattern Customizer -->\n' +
-        svgContent;
+  svgContent =
+    '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' +
+    "<!-- Created with Cloud Pattern Customizer -->\n" +
+    svgContent;
 
-    if (!svgContent.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
-        svgContent = svgContent.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-    }
+  if (!svgContent.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
+    svgContent = svgContent.replace(
+      /^<svg/,
+      '<svg xmlns="http://www.w3.org/2000/svg"',
+    );
+  }
 
-    const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
+  const blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
 
-    // Set filename based on background visibility
-    const filename = backgroundVisible ? 'cloud-pattern.svg' : 'cloud-pattern-transparent.svg';
-    link.download = filename;
+  // Set filename based on background visibility
+  const filename = backgroundVisible
+    ? "cloud-pattern.svg"
+    : "cloud-pattern-transparent.svg";
+  link.download = filename;
 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
-    setTimeout(() => {
-        URL.revokeObjectURL(url);
-    }, 100);
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 100);
 }
 
 function downloadPNG() {
-    const svgElement = document.getElementById('svg-preview');
-    if (!svgElement) return;
+  const svgElement = document.getElementById("svg-preview");
+  if (!svgElement) return;
 
-    const serializer = new XMLSerializer();
-    let svgContent = serializer.serializeToString(svgElement);
+  const serializer = new XMLSerializer();
+  let svgContent = serializer.serializeToString(svgElement);
 
-    // Remove background if hidden OR explicitly transparent
-    if (!backgroundVisible || currentColors.bgColor === 'transparent') {
-        svgContent = svgContent.replace(/<rect[^>]*id="bg"[^>]*\/?>/, '');
-    }
+  // Remove background if hidden OR explicitly transparent
+  if (!backgroundVisible || currentColors.bgColor === "transparent") {
+    svgContent = svgContent.replace(/<rect[^>]*id="bg"[^>]*\/?>/, "");
+  }
 
-    // Ensure xmlns for SVG parsing in the image loader
-    if (!svgContent.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
-        svgContent = svgContent.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-    }
+  // Ensure xmlns for SVG parsing in the image loader
+  if (!svgContent.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
+    svgContent = svgContent.replace(
+      /^<svg/,
+      '<svg xmlns="http://www.w3.org/2000/svg"',
+    );
+  }
 
-    const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(svgBlob);
+  const svgBlob = new Blob([svgContent], {
+    type: "image/svg+xml;charset=utf-8",
+  });
+  const url = URL.createObjectURL(svgBlob);
 
-    const img = new Image();
-    img.onload = () => {
-        // Prefer explicit width/height, fallback to viewBox
-        const wAttr = parseFloat(svgElement.getAttribute('width') || '');
-        const hAttr = parseFloat(svgElement.getAttribute('height') || '');
-        const viewBox = (svgElement.getAttribute('viewBox') || '').trim().split(/\s+/).map(Number);
-        const vbW = viewBox.length === 4 ? viewBox[2] : NaN;
-        const vbH = viewBox.length === 4 ? viewBox[3] : NaN;
+  const img = new Image();
+  img.onload = () => {
+    // Prefer explicit width/height, fallback to viewBox
+    const wAttr = parseFloat(svgElement.getAttribute("width") || "");
+    const hAttr = parseFloat(svgElement.getAttribute("height") || "");
+    const viewBox = (svgElement.getAttribute("viewBox") || "")
+      .trim()
+      .split(/\s+/)
+      .map(Number);
+    const vbW = viewBox.length === 4 ? viewBox[2] : NaN;
+    const vbH = viewBox.length === 4 ? viewBox[3] : NaN;
 
-        const width = Number.isFinite(wAttr) ? wAttr : (Number.isFinite(vbW) ? vbW : img.width || 1399.8);
-        const height = Number.isFinite(hAttr) ? hAttr : (Number.isFinite(vbH) ? vbH : img.height || 1400);
+    const width = Number.isFinite(wAttr)
+      ? wAttr
+      : Number.isFinite(vbW)
+        ? vbW
+        : img.width || 1399.8;
+    const height = Number.isFinite(hAttr)
+      ? hAttr
+      : Number.isFinite(vbH)
+        ? vbH
+        : img.height || 1400;
 
-        // 4x export for sharper PNGs
-        const scale = 4;
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.round(width * scale);
-        canvas.height = Math.round(height * scale);
+    // 4x export for sharper PNGs
+    const scale = 4;
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
 
-        const ctx = canvas.getContext('2d');
-        ctx.setTransform(scale, 0, 0, scale, 0, 0);
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        ctx.clearRect(0, 0, width, height); // keep transparency when bg is removed
-        ctx.drawImage(img, 0, 0, width, height);
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.clearRect(0, 0, width, height); // keep transparency when bg is removed
+    ctx.drawImage(img, 0, 0, width, height);
 
-        canvas.toBlob((pngBlob) => {
-            if (!pngBlob) {
-                URL.revokeObjectURL(url);
-                return;
-            }
-
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(pngBlob);
-
-            const hasBg = backgroundVisible && currentColors.bgColor !== 'transparent';
-            link.download = hasBg ? 'cloud-pattern.png' : 'cloud-pattern-transparent.png';
-
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            // Cleanup URLs
-            setTimeout(() => {
-                URL.revokeObjectURL(url);
-                URL.revokeObjectURL(link.href);
-            }, 100);
-        }, 'image/png');
-    };
-
-    img.onerror = () => {
+    canvas.toBlob((pngBlob) => {
+      if (!pngBlob) {
         URL.revokeObjectURL(url);
-        console.error('Failed to render SVG to PNG.');
-    };
+        return;
+      }
 
-    img.src = url;
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(pngBlob);
+
+      const hasBg =
+        backgroundVisible && currentColors.bgColor !== "transparent";
+      link.download = hasBg
+        ? "cloud-pattern.png"
+        : "cloud-pattern-transparent.png";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Cleanup URLs
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(link.href);
+      }, 100);
+    }, "image/png");
+  };
+
+  img.onerror = () => {
+    URL.revokeObjectURL(url);
+    console.error("Failed to render SVG to PNG.");
+  };
+
+  img.src = url;
 }
 
 // ====== INITIALIZATION ======
 function setupEventListeners() {
-    // Global controls
-    document.getElementById('randomizeAll')?.addEventListener('click', randomizeAllColors);
-    document.getElementById('resetColors')?.addEventListener('click', resetColors);
-    document.getElementById('downloadSVG')?.addEventListener('click', downloadSVG);
-    document.getElementById('downloadPNG')?.addEventListener('click', downloadPNG);
-    document.getElementById('toggleBackground')?.addEventListener('click', toggleBackground);
-    document.getElementById('makeTransparent')?.addEventListener('click', makeTransparent);
+  // Global controls
+  document
+    .getElementById("randomizeAll")
+    ?.addEventListener("click", randomizeAllColors);
+  document
+    .getElementById("resetColors")
+    ?.addEventListener("click", resetColors);
+  document
+    .getElementById("downloadSVG")
+    ?.addEventListener("click", downloadSVG);
+  document
+    .getElementById("downloadPNG")
+    ?.addEventListener("click", downloadPNG);
+  document
+    .getElementById("toggleBackground")
+    ?.addEventListener("click", toggleBackground);
+  document
+    .getElementById("makeTransparent")
+    ?.addEventListener("click", makeTransparent);
 
-    // Version selector
-    document.getElementById('version-select')?.addEventListener('change', (e) => {
-        changeVersion(e.target.value);
+  // Version selector
+  document.getElementById("version-select")?.addEventListener("change", (e) => {
+    changeVersion(e.target.value);
+  });
+
+  // Fill mode selectors
+  document.querySelectorAll('input[name="fillMode"]').forEach((input) => {
+    input.addEventListener("change", (e) => {
+      fillMode = e.target.value;
+      renderClouds();
     });
+  });
 
-    // Background color
-    document.getElementById('bg-fill')?.addEventListener('input', (e) => {
-        currentColors.bgColor = e.target.value;
-        const bgElement = document.getElementById('bg');
-        bgElement.setAttribute('fill', currentColors.bgColor);
+  // Background color
+  document.getElementById("bg-fill")?.addEventListener("input", (e) => {
+    currentColors.bgColor = e.target.value;
+    const bgElement = document.getElementById("bg");
+    bgElement.setAttribute("fill", currentColors.bgColor);
 
-        // Show background if a color is selected (not transparent)
-        if (currentColors.bgColor !== 'transparent') {
-            bgElement.style.display = 'block';
-        }
+    // Show background if a color is selected (not transparent)
+    if (currentColors.bgColor !== "transparent") {
+      bgElement.style.display = "block";
+    }
 
-        document.getElementById('bg-color-code').textContent = currentColors.bgColor;
-        displayColorCodes();
-    });
+    document.getElementById("bg-color-code").textContent =
+      currentColors.bgColor;
+    if (fillMode === "outline") {
+      renderClouds();
+    } else {
+      displayColorCodes();
+    }
+  });
 
-    // Group colors
-    currentColors.groups.forEach((_, i) => {
-        document.getElementById(`g${i + 1}-fill`)?.addEventListener('input', (e) => {
-            currentColors.groups[i].fill = e.target.value;
-            document.getElementById(`g${i + 1}-fill-code`).textContent = e.target.value;
-            renderClouds();
-        });
+  // Group colors
+  currentColors.groups.forEach((_, i) => {
+    document
+      .getElementById(`g${i + 1}-fill`)
+      ?.addEventListener("input", (e) => {
+        currentColors.groups[i].fill = e.target.value;
+        document.getElementById(`g${i + 1}-fill-code`).textContent =
+          e.target.value;
+        renderClouds();
+      });
 
-        document.getElementById(`g${i + 1}-stroke`)?.addEventListener('input', (e) => {
-            currentColors.groups[i].stroke = e.target.value;
-            document.getElementById(`g${i + 1}-stroke-code`).textContent = e.target.value;
-            renderClouds();
-        });
-    });
+    document
+      .getElementById(`g${i + 1}-stroke`)
+      ?.addEventListener("input", (e) => {
+        currentColors.groups[i].stroke = e.target.value;
+        document.getElementById(`g${i + 1}-stroke-code`).textContent =
+          e.target.value;
+        renderClouds();
+      });
+  });
 }
 
 function init() {
-    createGroupControls();
-    renderClouds();
-    setupEventListeners();
+  createGroupControls();
+  renderClouds();
+  setupEventListeners();
 }
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener("DOMContentLoaded", init);
